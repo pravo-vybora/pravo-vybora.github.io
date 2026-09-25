@@ -136,8 +136,8 @@ WEEK_RANGES.forEach((w,i)=>{const ready=!!(WEEKS[i]&&WEEKS[i].length);
   tabs.insertAdjacentHTML("beforeend",`<button class="tab" role="tab" id="tab${i}" data-i="${i}" ${ready?"":"disabled"} aria-selected="false"><span class="wk">${w[0]} · </span>${w[1]}</button>`)});
 function card(r){
   const rech=(r.rech||[]).map(l=>{
-    const act=l.deystvie?`<span class="act">(${esc(l.deystvie)})</span>`:"";
-    if(l.kto&&l.tekst) return `<p class="line"><b>${esc(l.kto)}:</b> ${act}${act?" ":""}${esc(l.tekst)}</p>`;
+    const act=l.deystvie?`<span class="act">${esc(l.deystvie)}</span>`:"";
+    if(l.kto&&l.tekst) return `<p class="line"><b>${esc(l.kto)}:</b> ${esc(l.tekst)}</p>`;
     if(l.kto&&!l.tekst) return `<p class="line"><b>${esc(l.kto)}:</b> ${act}</p>`;
     return `<p class="line solo">${act}</p>`;
   }).join("");
